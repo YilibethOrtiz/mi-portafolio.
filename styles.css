@@ -1,6 +1,4 @@
-/* ==========================================================================
-   1. VARIABLES DE COLOR & CONFIGURACIÓN BASE (Tu paleta exacta)
-   ========================================================================== */
+
 :root {
   --periwinkle: #E3D9FC;
   --hyper-magenta: #BF40FA;
@@ -17,15 +15,13 @@
 }
 
 body {
-/* Mantiene tu fondo negro base */
-  background-color: var(--black); 
-  
-  /* Crea dos esferas de luz neón difuminadas en el fondo profundo */
+
+  background-color: var(--black);
   background-image: 
     radial-gradient(circle at 10% 20%, rgba(73, 40, 194, 0.15) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(191, 64, 250, 0.1) 0%, transparent 50%);
     
-  background-attachment: fixed; /* El fondo se queda quieto mientras bajas */
+  background-attachment: fixed;
   color: var(--periwinkle);
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
@@ -33,15 +29,11 @@ body {
   overflow-x: hidden;
 }
 
-/* Contenedor central para que no ocupe toda la pantalla de lado a lado */
+
 body > *, header, section, footer {
   max-width: 900px;
   margin: 0 auto 60px auto;
 }
-
-/* ==========================================================================
-   2. EFECTOS NEÓN & TÍTULOS (Movimiento y brillo)
-   ========================================================================== */
 .titulo-neon {
   font-size: 2.8rem;
   font-weight: 700;
@@ -78,15 +70,10 @@ body > *, header, section, footer {
   opacity: 0.85;
   margin-bottom: 30px;
 }
-
-/* ==========================================================================
-   3. BOTONES MODERNOS
-   ========================================================================== */
 .botones {
   display: flex;
   gap: 15px;
 }
-
 .btn {
   display: inline-block;
   padding: 10px 24px;
@@ -118,17 +105,11 @@ body > *, header, section, footer {
   background-color: rgba(227, 217, 252, 0.1);
   transform: translateY(-3px);
 }
-
-/* ==========================================================================
-   4. ESTRUCTURA EN COLUMNAS (Grid & Flexbox)
-   ========================================================================== */
 .tarjetas-grid, .proyectos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
 }
-
-/* Diseño de las tarjetas con bordes redondeados y efecto cristal */
 .tarjeta-estudio, .tarjeta-proyecto {
   background: var(--tarjeta-bg);
   border: 1px solid rgba(191, 64, 250, 0.2);
@@ -137,8 +118,6 @@ body > *, header, section, footer {
   backdrop-filter: blur(5px);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-
-/* El efecto "Glow" interactivo al pasar el mouse por encima */
 .tarjeta-estudio:hover, .tarjeta-proyecto:hover {
   transform: translateY(-5px);
   border-color: var(--hyper-magenta);
@@ -160,10 +139,6 @@ body > *, header, section, footer {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
-/* ==========================================================================
-   5. BADGES / ETIQUETAS DE TECNOLOGÍA
-   ========================================================================== */
 .badges-contenedor, .proyecto-techs {
   display: flex;
   flex-wrap: wrap;
@@ -185,8 +160,6 @@ body > *, header, section, footer {
   font-weight: 500;
   transition: all 0.3s ease;
 }
-
-/* Animación de rebote y luz al pasar el mouse por los badges */
 .badge:hover {
   background-color: var(--hyper-magenta);
   border-color: var(--hyper-magenta);
@@ -207,10 +180,6 @@ body > *, header, section, footer {
 .btn-proyecto-link:hover {
   color: var(--hyper-magenta);
 }
-
-/* ==========================================================================
-   6. PIE DE PÁGINA
-   ========================================================================== */
 footer {
   text-align: center;
   font-size: 0.85rem;
@@ -237,9 +206,6 @@ footer {
   opacity: 0.7;
   margin-bottom: 15px;
 }
-/* ==========================================================================
-   7. ICONOS & AJUSTES DE BADGES
-   ========================================================================== */
 .badge i, .proyecto-techs i {
   margin-right: 8px;
   color: var(--hyper-magenta); /* Los iconos brillan en magenta */
@@ -249,10 +215,6 @@ footer {
 .badge:hover i {
   color: #ffffff; /* Al pasar el mouse, el icono se vuelve blanco */
 }
-
-/* ==========================================================================
-   8. DISEÑO DEL FORMULARIO DE CONTACTO
-   ========================================================================== */
 .contacto-contenedor {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -332,9 +294,6 @@ footer {
   width: 100%;
   text-align: center;
 }
-/* ==========================================================================
-   9. EFECTOS AVANZADOS - FOTO POP-OUT (SILUETA TRANSPARENTE)
-   ========================================================================== */
 .contenedor-foto {
   display: flex;
   justify-content: center;
@@ -348,32 +307,30 @@ footer {
   width: 160px;
   height: 160px;
   object-fit: cover;
-  /* El secreto: la mitad inferior tiene el fondo brillante y la superior es libre */
   background: linear-gradient(to bottom, transparent 20%, var(--tarjeta-bg) 20%);
-  
-  /* Borde redondeado estilo cápsula o escudo */
+
   border-radius: 50% 50% 16px 16px; 
   
-  /* Borde neón que enmarca la silueta */
+ 
   border: 2px solid rgba(191, 64, 250, 0.4);
   border-bottom: 2px solid var(--hyper-magenta);
   
-  /* Sombra de neón profunda en la base */
+ 
   box-shadow: 0 10px 25px rgba(73, 40, 194, 0.3), inset 0 -10px 20px rgba(191, 64, 250, 0.1);
   
-  /* Transición suave para cuando pases el mouse */
+
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   
-  /* Ajuste para que se apoye bien visualmente */
+  
   transform-origin: bottom center;
 }
 
-/* Efecto interactivo al pasar el mouse (Hover) */
+
 .foto-perfil:hover {
-  /* La foto se hace un poquito más grande y se eleva, acentuando el efecto 3D */
+  
   transform: scale(1.08) translateY(-5px);
   
-  /* El neón se enciende a su máxima potencia */
+ 
   border-color: var(--hyper-magenta);
   box-shadow: 0 15px 35px rgba(191, 64, 250, 0.5), 
               0 0 15px var(--hyper-magenta),
@@ -382,22 +339,22 @@ footer {
 
 
 
-/* Ajustes para pantallas pequeñas (Celulares) */
+
 @media (max-width: 600px) {
   body {
-    padding: 20px 15px; /* Menos margen lateral para aprovechar el espacio */
+    padding: 20px 15px; 
   }
 
   .titulo-neon {
-    font-size: 2rem; /* Títulos un poco más pequeños para que no se corten */
+    font-size: 2rem; 
   }
 
   .botones {
-    flex-direction: column; /* Botones uno debajo del otro en vez de al lado */
+    flex-direction: column;
     width: 100%;
   }
 
   .tarjetas-grid, .proyectos-grid, .contacto-contenedor {
-    grid-template-columns: 1fr; /* Una sola columna para que sea vertical */
+    grid-template-columns: 1fr;
   }
 }
