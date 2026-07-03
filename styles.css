@@ -1,0 +1,403 @@
+/* ==========================================================================
+   1. VARIABLES DE COLOR & CONFIGURACIÓN BASE (Tu paleta exacta)
+   ========================================================================== */
+:root {
+  --periwinkle: #E3D9FC;
+  --hyper-magenta: #BF40FA;
+  --ultrasonic-blue: #4928C2;
+  --velvet-purple: #5B2A62;
+  --black: #040607;
+  --tarjeta-bg: rgba(91, 42, 98, 0.15); /* Tu morado velvet con transparencia */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+/* Mantiene tu fondo negro base */
+  background-color: var(--black); 
+  
+  /* Crea dos esferas de luz neón difuminadas en el fondo profundo */
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(73, 40, 194, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(191, 64, 250, 0.1) 0%, transparent 50%);
+    
+  background-attachment: fixed; /* El fondo se queda quieto mientras bajas */
+  color: var(--periwinkle);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  padding: 40px 20px;
+  overflow-x: hidden;
+}
+
+/* Contenedor central para que no ocupe toda la pantalla de lado a lado */
+body > *, header, section, footer {
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+}
+
+/* ==========================================================================
+   2. EFECTOS NEÓN & TÍTULOS (Movimiento y brillo)
+   ========================================================================== */
+.titulo-neon {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffffff;
+  text-shadow: 0 0 10px var(--hyper-magenta), 0 0 20px var(--ultrasonic-blue);
+}
+
+.resalto {
+  color: var(--hyper-magenta);
+}
+
+.subtitulo {
+  font-size: 1.2rem;
+  color: var(--periwinkle);
+  opacity: 0.9;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.subtitulo-seccion {
+  font-size: 1.8rem;
+  color: #ffffff;
+  border-left: 4px solid var(--hyper-magenta);
+  padding-left: 15px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 8px rgba(191, 64, 250, 0.6);
+}
+
+.descripcion {
+  max-width: 700px;
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   3. BOTONES MODERNOS
+   ========================================================================== */
+.botones {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primario {
+  background-color: var(--ultrasonic-blue);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(73, 40, 194, 0.4);
+}
+
+.btn-primario:hover {
+  background-color: var(--hyper-magenta);
+  box-shadow: 0 6px 20px rgba(191, 64, 250, 0.6);
+  transform: translateY(-3px);
+}
+
+.btn-secundario {
+  border: 2px solid var(--periwinkle);
+  color: var(--periwinkle);
+}
+
+.btn-secundario:hover {
+  background-color: rgba(227, 217, 252, 0.1);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   4. ESTRUCTURA EN COLUMNAS (Grid & Flexbox)
+   ========================================================================== */
+.tarjetas-grid, .proyectos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Diseño de las tarjetas con bordes redondeados y efecto cristal */
+.tarjeta-estudio, .tarjeta-proyecto {
+  background: var(--tarjeta-bg);
+  border: 1px solid rgba(191, 64, 250, 0.2);
+  border-radius: 16px;
+  padding: 25px;
+  backdrop-filter: blur(5px);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* El efecto "Glow" interactivo al pasar el mouse por encima */
+.tarjeta-estudio:hover, .tarjeta-proyecto:hover {
+  transform: translateY(-5px);
+  border-color: var(--hyper-magenta);
+  box-shadow: 0 10px 30px rgba(191, 64, 250, 0.15), 0 0 15px rgba(73, 40, 194, 0.2);
+  background: rgba(91, 42, 98, 0.25);
+}
+
+.tarjeta-estudio h3, .tarjeta-proyecto h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.universidad, .rol {
+  color: var(--hyper-magenta);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   5. BADGES / ETIQUETAS DE TECNOLOGÍA
+   ========================================================================== */
+.badges-contenedor, .proyecto-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.proyecto-techs {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.badge, .proyecto-techs span {
+  background-color: rgba(73, 40, 194, 0.3);
+  border: 1px solid var(--ultrasonic-blue);
+  color: var(--periwinkle);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Animación de rebote y luz al pasar el mouse por los badges */
+.badge:hover {
+  background-color: var(--hyper-magenta);
+  border-color: var(--hyper-magenta);
+  color: #ffffff;
+  transform: scale(1.08);
+  box-shadow: 0 0 10px var(--hyper-magenta);
+  cursor: default;
+}
+
+.btn-proyecto-link {
+  color: var(--periwinkle);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.btn-proyecto-link:hover {
+  color: var(--hyper-magenta);
+}
+
+/* ==========================================================================
+   6. PIE DE PÁGINA
+   ========================================================================== */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  border-top: 1px solid rgba(227, 217, 252, 0.1);
+  padding-top: 20px;
+}
+.enfoque-habilidades {
+  background: rgba(227, 217, 252, 0.03);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(73, 40, 194, 0.1);
+}
+
+.titulo-aprendizaje {
+  font-size: 1.1rem;
+  color: var(--periwinkle);
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.descripcion-corta {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 15px;
+}
+/* ==========================================================================
+   7. ICONOS & AJUSTES DE BADGES
+   ========================================================================== */
+.badge i, .proyecto-techs i {
+  margin-right: 8px;
+  color: var(--hyper-magenta); /* Los iconos brillan en magenta */
+  transition: color 0.3s ease;
+}
+
+.badge:hover i {
+  color: #ffffff; /* Al pasar el mouse, el icono se vuelve blanco */
+}
+
+/* ==========================================================================
+   8. DISEÑO DEL FORMULARIO DE CONTACTO
+   ========================================================================== */
+.contacto-contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  background: var(--tarjeta-bg);
+  border: 1px solid rgba(73, 40, 194, 0.2);
+  border-radius: 16px;
+  padding: 30px;
+  backdrop-filter: blur(5px);
+}
+
+.enlace-correo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+.enlace-correo i {
+  color: var(--hyper-magenta);
+  font-size: 1.3rem;
+  text-shadow: 0 0 8px var(--hyper-magenta);
+}
+
+.enlace-correo a {
+  color: var(--periwinkle);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.enlace-correo a:hover {
+  color: var(--hyper-magenta);
+}
+
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.grupo-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grupo-input label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--periwinkle);
+}
+
+.grupo-input input, .grupo-input textarea {
+  background: rgba(4, 6, 7, 0.6);
+  border: 1px solid rgba(227, 217, 252, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+/* Efecto focus de neón cuando el usuario hace clic para escribir */
+.grupo-input input:focus, .grupo-input textarea:focus {
+  outline: none;
+  border-color: var(--hyper-magenta);
+  box-shadow: 0 0 10px rgba(191, 64, 250, 0.4);
+}
+
+.btn-formulario {
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  width: 100%;
+  text-align: center;
+}
+/* ==========================================================================
+   9. EFECTOS AVANZADOS - FOTO POP-OUT (SILUETA TRANSPARENTE)
+   ========================================================================== */
+.contenedor-foto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  /* Creamos el espacio vertical para que la cabeza pueda sobresalir */
+  padding-top: 25px; 
+}
+
+.foto-perfil {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  /* El secreto: la mitad inferior tiene el fondo brillante y la superior es libre */
+  background: linear-gradient(to bottom, transparent 20%, var(--tarjeta-bg) 20%);
+  
+  /* Borde redondeado estilo cápsula o escudo */
+  border-radius: 50% 50% 16px 16px; 
+  
+  /* Borde neón que enmarca la silueta */
+  border: 2px solid rgba(191, 64, 250, 0.4);
+  border-bottom: 2px solid var(--hyper-magenta);
+  
+  /* Sombra de neón profunda en la base */
+  box-shadow: 0 10px 25px rgba(73, 40, 194, 0.3), inset 0 -10px 20px rgba(191, 64, 250, 0.1);
+  
+  /* Transición suave para cuando pases el mouse */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* Ajuste para que se apoye bien visualmente */
+  transform-origin: bottom center;
+}
+
+/* Efecto interactivo al pasar el mouse (Hover) */
+.foto-perfil:hover {
+  /* La foto se hace un poquito más grande y se eleva, acentuando el efecto 3D */
+  transform: scale(1.08) translateY(-5px);
+  
+  /* El neón se enciende a su máxima potencia */
+  border-color: var(--hyper-magenta);
+  box-shadow: 0 15px 35px rgba(191, 64, 250, 0.5), 
+              0 0 15px var(--hyper-magenta),
+              inset 0 -10px 25px rgba(73, 40, 194, 0.3);
+}
+
+
+
+/* Ajustes para pantallas pequeñas (Celulares) */
+@media (max-width: 600px) {
+  body {
+    padding: 20px 15px; /* Menos margen lateral para aprovechar el espacio */
+  }
+
+  .titulo-neon {
+    font-size: 2rem; /* Títulos un poco más pequeños para que no se corten */
+  }
+
+  .botones {
+    flex-direction: column; /* Botones uno debajo del otro en vez de al lado */
+    width: 100%;
+  }
+
+  .tarjetas-grid, .proyectos-grid, .contacto-contenedor {
+    grid-template-columns: 1fr; /* Una sola columna para que sea vertical */
+  }
+}
